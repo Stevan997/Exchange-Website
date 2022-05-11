@@ -1,0 +1,27 @@
+version: '3.3'
+
+services:
+  app:
+    build: .
+    container_name: app_exchange_website
+    hostname: app_exchange_website
+    restart: unless-stopped
+    external_links:
+      - traefik
+    networks:
+      - internal
+      - default
+    volumes:
+      - ./src:/var/www/html
+    labels:
+      - "traefik.http.middlewares.sslredirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.exchange_website_secure.middlewares=sslredirect"
+      - "traefik.enable=true"
+      - "traefik.http.routers.exchange_website_secure.rule=Host(`exchange_website.docker.localhost`)"
+      - "traefik.http.routers.exchange_website_secure.entrypoints=websecure"
+      - "traefik.http.routers.exchange_website_secure.tls.certresolver=myresolver"
+      - "traefik.docker.network=internal"
+networks:
+  default:
+  internal:
+    external: true
