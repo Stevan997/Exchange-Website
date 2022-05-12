@@ -16,10 +16,10 @@
             </tr>
             <tr>
                 <td>Paid</td>
-                <td>{{$data['paid']}}</td>
+                <td>{{$data['paid']}} USD</td>
             </tr><tr>
-                <td>Discount</td>
-                <td>{{$data['discount']}}%</td>
+                <td>Discount (Included)</td>
+                <td>{{round($data['discount'], 2)}} USD</td>
             </tr>
             </tbody>
         </table>
