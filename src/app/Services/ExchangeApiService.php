@@ -24,7 +24,7 @@ class ExchangeApiService extends ApiService
      * @param Request $request
      * @return array|array[]
      */
-    public function getCurrencies(Request $request)
+    public function getCurrencies(Request $request): array
     {
         try {
             $res = $this->client->get($this->endpoint . $this->version . self::$CURRENCIES, [
@@ -40,7 +40,7 @@ class ExchangeApiService extends ApiService
      * @param Request $request
      * @return array
      */
-    public function exchange(Request $request)
+    public function exchange(Request $request): array
     {
         try {
             $res = $this->client->get($this->endpoint . $this->version . self::$EXCHANGE, [

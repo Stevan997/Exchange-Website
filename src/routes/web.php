@@ -16,3 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['prefix' => '/exchange'], function () {
+    Route::get('/','ExchangeController@exchangeStore');
+    Route::get('/order','ExchangeController@exchange');
+    Route::get('/complete','ExchangeController@exchangeRedirect');
+});
+Route::group(['prefix' => '/currencies'], function () {
+    Route::get('/list','ExchangeController@currencies');
+});
