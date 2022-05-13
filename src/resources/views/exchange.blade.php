@@ -38,7 +38,7 @@
                     <form class="form" method="GET" action="/exchange/complete">
                         <div class="form-group">
                             <label for="amount">Amount</label>
-                            <input type="text" class="form-control" id="amount" name="amount">
+                            <input type="text" class="form-control" required id="amount" name="amount">
                         </div>
                         <input type="hidden" id="currency" name="currency">
                         <div class="modal-footer justify-content-between">
