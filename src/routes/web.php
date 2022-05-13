@@ -20,7 +20,7 @@ Route::get('/', function () {
 Route::group(['prefix' => '/exchange'], function () {
     Route::get('/','ExchangeController@exchangeStore');
     Route::get('/order','ExchangeController@exchange');
-    Route::get('/complete','ExchangeController@exchangeRedirect');
+    Route::get('/complete','ExchangeController@exchangeComplete');
 });
 Route::group(['prefix' => '/currencies'], function () {
     Route::get('/list','ExchangeController@currencies');

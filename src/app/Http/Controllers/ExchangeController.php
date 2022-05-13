@@ -52,7 +52,7 @@ class ExchangeController extends Controller
      * @param Request $request
      * @return Application|Factory|View
      */
-    public function exchangeRedirect(Request $request): View
+    public function exchangeComplete(Request $request): View
     {
         $res = $this->exchange($request);
         return view('completed', ['data' => $res]);

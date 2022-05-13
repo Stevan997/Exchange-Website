@@ -10,17 +10,24 @@
                 <td>Status</td>
                 <td>{{$data['status']}}</td>
             </tr>
-            <tr>
-                <td>Bought</td>
-                <td>{{$data['amount']}} {{$data['currency']}}</td>
-            </tr>
-            <tr>
-                <td>Paid</td>
-                <td>{{$data['paid']}} USD</td>
-            </tr><tr>
-                <td>Discount (Included)</td>
-                <td>{{round($data['discount'], 2)}} USD</td>
-            </tr>
+            @if($data['status'] == 'fail')
+                <tr>
+                    <td>Message</td>
+                    <td>{{$data['message']}}</td>
+                </tr>
+            @else
+                <tr>
+                    <td>Bought</td>
+                    <td>{{$data['amount']}} {{$data['currency']}}</td>
+                </tr>
+                <tr>
+                    <td>Paid</td>
+                    <td>{{$data['paid']}} USD</td>
+                </tr><tr>
+                    <td>Discount (Included)</td>
+                    <td>{{round($data['discount'], 2)}} USD</td>
+                </tr>
+            @endif
             </tbody>
         </table>
     </div>
